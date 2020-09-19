@@ -28,5 +28,29 @@ def wishMe():
     else:
         speak("Hello,Good Evening")
         print("Hello,Good Evening")
+        
+        
+        if 'wikipedia' in statement:
+            speak('Searching Wikipedia...')
+            statement =statement.replace("wikipedia", "")
+            results = wikipedia.summary(statement, sentences=3)
+            speak("According to Wikipedia")
+            print(results)
+            speak(results)
+
+        elif 'open youtube' in statement:
+            webbrowser.open_new_tab("https://www.youtube.com")
+            speak("youtube is open now")
+            time.sleep(5)
+
+        elif 'open google' in statement:
+            webbrowser.open_new_tab("https://www.google.com")
+            speak("Google chrome is open now")
+            time.sleep(5)
+
+        elif 'open gmail' in statement:
+            webbrowser.open_new_tab("gmail.com")
+            speak("Google Mail open now")
+            time.sleep(5)
     
 
