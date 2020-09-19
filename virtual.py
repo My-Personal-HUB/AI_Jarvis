@@ -45,4 +45,8 @@ def takeCommand():
             return "None"
         return statement
     
+speak("Loading your AI personal assistant G-One")
+wishMe()
+
+    
 
