@@ -1,6 +1,8 @@
 # AI_Assistant
 The AI Virtual Assistant works using an android app which is installed on the user's android phone. The user activates the agent using the wake up command, 'Listen up Jarvis'. The android app is connected to the Arduino 101 via Bluetooth which is inturn connected to the relay and hence the electrical appliances
 
+https://github.com/My-Personal-HUB/AI_Jarvis/blob/master/jarvisai.jpg
+
 # Assistant Skills
 Opens a web page (e.g 'Jarvis open youtube')
 
