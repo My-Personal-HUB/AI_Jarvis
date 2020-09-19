@@ -48,5 +48,19 @@ def takeCommand():
 speak("Loading your AI personal assistant G-One")
 wishMe()
 
+if __name__=='__main__':
+
+
+    while True:
+        speak("Tell me how can I help you now?")
+        statement = takeCommand().lower()
+        if statement==0:
+            continue
+
+        if "good bye" in statement or "ok bye" in statement or "stop" in statement:
+            speak('your personal assistant G-one is shutting down,Good bye')
+            print('your personal assistant G-one is shutting down,Good bye')
+            break
+
     
 
