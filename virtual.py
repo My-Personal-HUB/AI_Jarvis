@@ -10,6 +10,10 @@ from ecapture import ecapture as ec
 import wolframalpha
 import json
 import requests
+import smtplib
+import pyjokes
+import psutil
+
 
 print('Loading your AI personal assistant - G One')
 
@@ -53,6 +57,29 @@ def takeCommand():
     
 speak("Loading your AI personal assistant Jarvis")
 wishMe()
+
+
+def sendEmail(to, content):
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.ehlo()
+    server.starttls()
+    server.login('rahulmehta95182@outlook.com', 'Rahul@95182')
+    server.sendmail('khacker392@gmail.com',to,content)
+    server.close()
+    
+    
+def cpu():
+    usage=str(psutil.cpu_percent())
+    speak("CPU is at"+usage)
+
+    battery = psutil.sensors_battery()
+    speak("battery is at")
+    speak(battery.percent)
+
+def joke():
+    speak(pyjokes.get_jokes())
+
+
 
 if __name__=='__main__':
 
@@ -136,10 +163,25 @@ if __name__=='__main__':
             
         elif "log off" in statement or "sign out" in statement:
             speak("Ok , your pc will log off in 10 sec make sure you exit from all applications")
-            subprocess.call(["shutdown", "/l"])
-
-time.sleep(3)
-
-
+            subprocess.call(["shutdown", "/l"]) 
+            time.sleep(3)
+           
+       elif 'send email' in statement:
+             try:
+                speak("what should i say")
+                content=takecommand()
+                speak("who is the receiver")
+                receiver=input('enter receiver email')
+                to=receiver
+                sendEmail(to,content)
+                speak(content)
+                speak("email is send")
+                
+       elif 'cpu' in statement:
+           cpu()
+           
+ 
+        elif 'jokes' in statement:
+            joke()
     
 
